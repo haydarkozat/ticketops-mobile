@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "TicketOps",
+    "slug": "ticketops",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#020617"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#020617"
+      }
+    },
+    "plugins": [
+      "expo-notifications"
+    ]
+  }
+}

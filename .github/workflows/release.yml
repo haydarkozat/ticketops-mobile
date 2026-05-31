@@ -1,0 +1,41 @@
+name: Release (EAS Build)
+
+# Sürüm etiketi (v1.0.0 gibi) atıldığında veya elle tetiklendiğinde
+# Expo Application Services (EAS) ile iOS + Android derlemesi üretir.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform"
+        required: true
+        default: "all"
+        type: choice
+        options: [all, ios, android]
+
+jobs:
+  build:
+    name: EAS derleme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Bağımlılıkları kur
+        run: npm install
+
+      - name: EAS kur ve oturum aç
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Derleme (production profili)
+        run: eas build --platform ${{ github.event.inputs.platform || 'all' }} --profile production --non-interactive
