@@ -1,6 +1,6 @@
 # TicketOps v5.0 — Destek Talebi Yönetim Sistemi
 
-![CI](https://github.com/KULLANICI/ticketops/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/haydarkozat/ticketops/actions/workflows/ci.yml/badge.svg)
 
 **React Native + TypeScript (Expo)** kurumsal destek masası. v5.0 **CI/CD** ekler:
 
